@@ -9,9 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Form Demo',
+      title: 'Recipes to Kart',
       theme: ThemeData(primarySwatch: Colors.lightBlue),
       home: CreateProfilePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../home_screen.dart';
 
 InputDecoration buildInputDecoration(String label, String hint) {
   return InputDecoration(
@@ -33,6 +34,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       TextEditingController();
 
   bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   @override
   void dispose() {
@@ -50,6 +52,13 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Profile created!')));
+
+      Future.delayed(Duration(milliseconds: 500), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      });
     }
   }
 
@@ -57,6 +66,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Create Your Profile')),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -139,8 +149,23 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
 
               TextFormField(
                 controller: _confirmPasswordController,
-                obscureText: _obscurePassword,
-                decoration: buildInputDecoration('Confirm Password', ''),
+                obscureText: _obscureConfirmPassword,
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  border: OutlineInputBorder(),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureConfirmPassword
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureConfirmPassword = !_obscureConfirmPassword;
+                      });
+                    },
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please confirm your password';
