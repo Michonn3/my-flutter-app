@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../home_screen.dart';
+import '../utils/pdf_handler.dart';
 
 InputDecoration buildInputDecoration(String label, String hint) {
   return InputDecoration(
@@ -160,9 +161,20 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                           : Icons.visibility,
                     ),
                     onPressed: () {
-                      setState(() {
-                        _obscureConfirmPassword = !_obscureConfirmPassword;
-                      });
+                      bool isValid = _formKey.currentState!.validate();
+                      if (isValid) {
+                        setState(() {
+                          _obscureConfirmPassword = !_obscureConfirmPassword;
+                        });
+                      }
+
+                      // Navigate to PDF upload page (or dashboard)
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FilePickerApp(),
+                        ),
+                      );
                     },
                   ),
                 ),
