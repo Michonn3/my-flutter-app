@@ -50,6 +50,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       print('Name: ${_nameController.text}');
       print('Email: ${_emailController.text}');
 
+      String userName = _nameController.text;
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Profile created!')));
@@ -57,7 +58,9 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       Future.delayed(Duration(milliseconds: 500), () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(userName: userName),
+          ),
         );
       });
     }
@@ -69,7 +72,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
       appBar: AppBar(title: Text('Create Your Profile')),
 
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(64.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -172,7 +175,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FilePickerApp(),
+                          builder: (context) => FilePickerHomePage(),
                         ),
                       );
                     },
