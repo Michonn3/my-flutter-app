@@ -18,6 +18,8 @@ Future<void> openHEBHomepage() async {
  *  with a title and sets the home screen to FilePickerHomePage. 
  */
 class FilePickerApp extends StatelessWidget {
+  const FilePickerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,17 +35,17 @@ class FilePickerApp extends StatelessWidget {
 * UI based on user actions (like picking a file).
 */
 class FilePickerHomePage extends StatefulWidget {
-  const FilePickerHomePage({Key? key}) : super(key: key);
+  const FilePickerHomePage({super.key});
 
   @override
-  _FilePickerHomePageState createState() => _FilePickerHomePageState();
+  FilePickerHomePageState createState() => FilePickerHomePageState();
 }
 
 /* State Class 
 *  Holds the state for the home page
 * _fileName stores the name of the selected file.
 */
-class _FilePickerHomePageState extends State<FilePickerHomePage> {
+class FilePickerHomePageState extends State<FilePickerHomePage> {
   String? _fileName;
 
   // File Picking logic : When the user taps the button, _pickFile()

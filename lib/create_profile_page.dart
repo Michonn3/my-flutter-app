@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import '../home_screen.dart';
-import '../utils/pdf_handler.dart';
 
 InputDecoration buildInputDecoration(String label, String hint) {
   return InputDecoration(
     labelText: label,
     hintText: hint,
-    // prefixIcon: Icon(Icons.leadingIcon),
     border: OutlineInputBorder(),
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Colors.grey),
@@ -20,17 +18,18 @@ InputDecoration buildInputDecoration(String label, String hint) {
 }
 
 class CreateProfilePage extends StatefulWidget {
+  const CreateProfilePage({super.key});
+
   @override
-  _CreateProfilePageState createState() => _CreateProfilePageState();
+  CreateProfilePageState createState() => CreateProfilePageState();
 }
 
-class _CreateProfilePageState extends State<CreateProfilePage> {
+class CreateProfilePageState extends State<CreateProfilePage> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  //final TextEditingController _dobController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
@@ -55,15 +54,18 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
         context,
       ).showSnackBar(SnackBar(content: Text('Profile created!')));
 
-      Future.delayed(Duration(milliseconds: 500), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomeScreen(userName: userName),
-          ),
-        );
-      });
+      _delayedNavigation(userName);
     }
+  }
+
+  Future<void> _delayedNavigation(String userName) async {
+    await Future.delayed(Duration(milliseconds: 500));
+    if (!mounted) return;
+
+    await Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen(userName: userName)),
+    );
   }
 
   @override
@@ -170,14 +172,6 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                           _obscureConfirmPassword = !_obscureConfirmPassword;
                         });
                       }
-
-                      // Navigate to PDF upload page (or dashboard)
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FilePickerHomePage(),
-                        ),
-                      );
                     },
                   ),
                 ),
