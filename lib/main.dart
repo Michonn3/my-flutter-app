@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'create_profile_page.dart';
-import 'package:groceries_to_kart/theme/app_theme.dart';
+import './screens/create_profile_page.dart';
+import 'theme/app_theme.dart';
+import 'package:flutter/rendering.dart'; // ONLY USE IN DEVELOPMENT- RENDERS WIDGET OUTLINES
 
 void main() {
+  debugPaintSizeEnabled =
+      false; // ONLY USE IN DEVELOPMENT- RENDERS WIDGET OUTLINE
   runApp(MyApp());
 }
 
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Recipes to Kart',
-      theme: ThemeData(fontFamily: 'LiberationSerif'),
+      theme: AppTheme.sandyTheme,
       home: CreateProfilePage(),
       debugShowCheckedModeBanner: false,
     );
