@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:groceries_to_kart/theme/text_styles.dart';
+import '../widgets/cards_stylized.dart';
 
 class HomeScreen extends StatelessWidget {
   final String userName;
@@ -22,73 +22,80 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16), // add some space arount
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-
-          children: [
-            Expanded(
-              flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-
-                children: [
-                  Row(children: [Text('Profile', softWrap: true)]),
-                  Row(children: [Text('Refrigerator', softWrap: true)]),
-                  Row(children: [Text('Recipes', softWrap: true)]),
-                  Row(children: [Text('Reverse Meal Plan', softWrap: true)]),
-                  Row(children: [Text('About Us', softWrap: true)]),
-                  Row(children: [Text('FAQs', softWrap: true)]),
-                  Row(children: [Text('Contact Us', softWrap: true)]),
-                ],
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.05,
+              child: Image.asset(
+                'assets/images/Flowing_Earth_Waves_Green.jpg',
+                fit: BoxFit.cover,
               ),
             ),
-            Expanded(
-              flex: 10,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Card(
-                      shape: LinearBorder(),
-                      child: Container(
-                        height: 200,
-                        padding: EdgeInsets.all(8),
-                        child: Text('FRIDGE'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16), // add some space arount
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    children: [
+                      Row(children: [Text('Profile', softWrap: true)]),
+                      Row(children: [Text('Refrigerator', softWrap: true)]),
+                      Row(children: [Text('Recipes', softWrap: true)]),
+                      Row(
+                        children: [Text('Reverse Meal Plan', softWrap: true)],
                       ),
-                    ),
+                      Row(children: [Text('About Us', softWrap: true)]),
+                      Row(children: [Text('FAQs', softWrap: true)]),
+                      Row(children: [Text('Contact Us', softWrap: true)]),
+                    ],
                   ),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Card(
-                      shape: LinearBorder(),
-                      child: Container(
-                        height: 200,
-                        padding: EdgeInsets.all(8),
-                        child: RichText(text: styledCardText('Recipes')),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: StyledCard(
+                          title: 'Fridge',
+                          icon: Icons.egg_outlined,
+                          iconColor: Colors.lightBlueAccent,
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Card(
-                      shape: LinearBorder(),
-                      child: Container(
-                        height: 200,
-                        padding: EdgeInsets.all(8),
-                        child: Text('REVERSE MEAL PLAN'),
+                      SizedBox(width: 8),
+
+                      Expanded(
+                        child: StyledCard(
+                          title: 'Recipes',
+                          icon: Icons.menu_book_rounded,
+                          iconColor: Colors.deepOrangeAccent,
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 8),
+                      Expanded(
+                        child: StyledCard(
+                          title: 'Reverse Meal Plan',
+                          icon: Icons.receipt_long_rounded,
+                          iconColor: Colors.deepOrangeAccent,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
