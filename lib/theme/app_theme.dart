@@ -14,7 +14,11 @@ class AppTheme {
     textTheme: TextTheme(
       bodyLarge: TextStyle(fontSize: 18, color: Colors.black),
       bodyMedium: TextStyle(fontSize: 16, color: Colors.black),
-      titleLarge: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+      titleLarge: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
     ),
 
     appBarTheme: AppBarTheme(
