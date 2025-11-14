@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData sandyTheme = ThemeData(
     fontFamily: 'LiberationSerif', // applies to all text
-    colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFD2B48C)),
+    //colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFD2B48C)),
     useMaterial3: true,
     scaffoldBackgroundColor: Color(
       0xFFD2B48C,
@@ -32,13 +32,6 @@ class AppTheme {
         fontWeight: FontWeight.bold,
       ),
       elevation: 0,
-    ),
-
-    cardTheme: const CardTheme(
-      elevation: 4,
-      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      shape: LinearBorder(),
-      color: Colors.white,
     ),
   );
 }

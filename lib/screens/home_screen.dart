@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:groceries_to_kart/screens/recipes_page.dart';
+import 'package:groceries_to_kart/screens/reverse_meal_plan.dart';
 import '../widgets/cards_stylized.dart';
+import 'package:groceries_to_kart/screens/image_upload_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final String userName;
@@ -18,7 +21,7 @@ class HomeScreen extends StatelessWidget {
               'Welcome back, $userName!',
               style: TextStyle(fontStyle: FontStyle.italic, fontSize: 26),
             ),
-            Text('LET\'S GET COOKING!', style: TextStyle(fontSize: 14)),
+            Text('Let\'s Get Cooking!', style: TextStyle(fontSize: 14)),
           ],
         ),
       ),
@@ -26,9 +29,9 @@ class HomeScreen extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Opacity(
-              opacity: 0.05,
+              opacity: 0.2,
               child: Image.asset(
-                'assets/images/Flowing_Earth_Waves_Green.jpg',
+                'lib/assets/images/waves.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -69,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                         child: StyledCard(
                           title: 'Fridge',
                           icon: Icons.egg_outlined,
-                          iconColor: Colors.lightBlueAccent,
+                          destination: const ImageUploadScreen(),
                         ),
                       ),
                       SizedBox(width: 8),
@@ -78,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                         child: StyledCard(
                           title: 'Recipes',
                           icon: Icons.menu_book_rounded,
-                          iconColor: Colors.deepOrangeAccent,
+                          destination: const RecipesPage(),
                         ),
                       ),
                       SizedBox(width: 8),
@@ -86,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                         child: StyledCard(
                           title: 'Reverse Meal Plan',
                           icon: Icons.receipt_long_rounded,
-                          iconColor: Colors.deepOrangeAccent,
+                          destination: const ReverseMealPlan(),
                         ),
                       ),
                     ],

@@ -10,11 +10,13 @@ class StyledCard extends StatelessWidget {
   final IconData icon;
   final double iconSize;
   final Color iconColor;
+  final Widget destination;
 
   const StyledCard({
     super.key,
     required this.title,
     required this.icon,
+    required this.destination,
     this.iconSize = 60,
     this.iconColor = Colors.black,
   });
@@ -46,9 +48,15 @@ class StyledCard extends StatelessWidget {
             SizedBox(height: 8),
             CustomIcon(icon: icon, size: iconSize, color: Color(0XFFFFFDD0)),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => destination),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF708090),
+                foregroundColor: Colors.black,
                 padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 textStyle: Theme.of(context).textTheme.bodyMedium,
               ),
