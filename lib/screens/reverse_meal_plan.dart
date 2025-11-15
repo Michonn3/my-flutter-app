@@ -33,7 +33,7 @@ class _ReverseMealPlanPageState extends State<ReverseMealPlan> {
   void initState() {
     super.initState();
     _controllers = List.generate(
-      6,
+      days.length,
       (row) => List.generate(7, (col) => TextEditingController()),
     );
   }
@@ -106,7 +106,7 @@ class _ReverseMealPlanPageState extends State<ReverseMealPlan> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: List.generate(
-                  6,
+                  columnHeaders.length,
                   (col) =>
                       Flexible(fit: FlexFit.loose, child: _buildCell(-1, col)),
                 ),
@@ -114,11 +114,11 @@ class _ReverseMealPlanPageState extends State<ReverseMealPlan> {
               const Divider(),
               // Meal Plan rows
               ...List.generate(
-                7,
+                days.length,
                 (row) => Row(
                   mainAxisSize: MainAxisSize.min,
                   children: List.generate(
-                    7,
+                    columnHeaders.length,
                     (col) => Flexible(
                       fit: FlexFit.loose,
                       child: _buildCell(row, col),
