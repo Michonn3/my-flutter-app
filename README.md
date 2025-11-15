@@ -84,11 +84,18 @@ Development Workflow
 Branching
 Recommended git workflow:
 
-- git checkout -b feature/add-item-filter
+- git status 
+- git pull # pull the latest changes only if your working tree is clean or commit/ stash first
+- git checkout -b feature/my-new-feature
 # make changes 
-- git add .
-- git commit -m "feat: add filter options for grocery items"
-- git push -u origin feature/add-item-filter
+- git status # work and check status often
+- git add . # stage your changes
+- git commit -m "feat: add filter options for grocery items" # commit your work
+- git push -u origin feature/my-new-feature # push your work
+- # create a pull request and merge into main
+- git checkout main # return to main and clean up
+- git pull
+- git branch -d feature/my-new-feature # optional: delete old feature branch
 
 Commit Message Style
 Use conventional commits when possible:
