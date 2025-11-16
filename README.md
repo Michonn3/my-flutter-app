@@ -96,7 +96,6 @@ Recommended git workflow:
 - git checkout main # return to main and clean up
 - git pull
 - git branch -d feature/my-new-feature # optional: delete old feature branch
-- git branch # lists all local branches. * next to current branch
 
 Commit Message Style
 Use conventional commits when possible:
