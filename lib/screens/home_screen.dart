@@ -30,10 +30,7 @@ class HomeScreen extends StatelessWidget {
           Positioned.fill(
             child: Opacity(
               opacity: 0.2,
-              child: Image.asset(
-                'lib/assets/images/waves.jpg',
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset('assets/images/waves.jpg', fit: BoxFit.cover),
             ),
           ),
           Padding(
@@ -43,25 +40,6 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
 
               children: [
-                Expanded(
-                  flex: 3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    children: [
-                      Row(children: [Text('Profile', softWrap: true)]),
-                      Row(children: [Text('Refrigerator', softWrap: true)]),
-                      Row(children: [Text('Recipes', softWrap: true)]),
-                      Row(
-                        children: [Text('Reverse Meal Plan', softWrap: true)],
-                      ),
-                      Row(children: [Text('About Us', softWrap: true)]),
-                      Row(children: [Text('FAQs', softWrap: true)]),
-                      Row(children: [Text('Contact Us', softWrap: true)]),
-                    ],
-                  ),
-                ),
                 Expanded(
                   flex: 10,
                   child: Row(
