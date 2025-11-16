@@ -30,10 +30,7 @@ class HomeScreen extends StatelessWidget {
           Positioned.fill(
             child: Opacity(
               opacity: 0.2,
-              child: Image.asset(
-                'lib/assets/images/waves.jpg',
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset('assets/images/waves.jpg', fit: BoxFit.cover),
             ),
           ),
           Padding(
