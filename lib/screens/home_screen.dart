@@ -33,46 +33,38 @@ class HomeScreen extends StatelessWidget {
               child: Image.asset('assets/images/waves.jpg', fit: BoxFit.cover),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16), // add some space arount
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 10,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: StyledCard(
-                          title: 'Fridge',
-                          icon: Icons.egg_outlined,
-                          destination: const ImageUploadScreen(),
-                        ),
-                      ),
-                      SizedBox(width: 8),
-
-                      Expanded(
-                        child: StyledCard(
-                          title: 'Recipes',
-                          icon: Icons.menu_book_rounded,
-                          destination: const RecipesPage(),
-                        ),
-                      ),
-                      SizedBox(width: 8),
-                      Expanded(
-                        child: StyledCard(
-                          title: 'Reverse Meal Plan',
-                          icon: Icons.receipt_long_rounded,
-                          destination: const ReverseMealPlan(),
-                        ),
-                      ),
-                    ],
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: StyledCard(
+                      title: 'Fridge',
+                      icon: Icons.egg_outlined,
+                      destination: const ImageUploadScreen(),
+                    ),
                   ),
-                ),
-              ],
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StyledCard(
+                      title: 'Recipes',
+                      icon: Icons.menu_book_rounded,
+                      destination: const RecipesPage(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StyledCard(
+                      title: 'Reverse Meal Plan',
+                      icon: Icons.receipt_long_rounded,
+                      destination: const ReverseMealPlan(),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
