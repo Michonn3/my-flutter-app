@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageUploadScreen extends StatefulWidget {
-  const ImageUploadScreen({Key? key}) : super(key: key);
+  const ImageUploadScreen({super.key});
 
   @override
   State<ImageUploadScreen> createState() => _ImageUploadScreenState();
