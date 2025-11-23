@@ -81,22 +81,26 @@ Example API endpoints:
 - POST /lists/:id/items - Add an item to a list
 
 Development Workflow
-Branching
 Recommended git workflow:
 
-- git status 
-- git pull # pull the latest changes only if your working tree is clean or commit/ stash first
-- git checkout -b feature/my-new-feature
-# make changes 
-- git status # work and check status often
-- git add . # stage your changes
-- git commit -m "feat: add filter options for grocery items" # commit your work
-- git push -u origin feature/my-new-feature # push your work
-- # create a pull request and merge into main
-- git checkout main # return to main and clean up
-- git pull
-- git branch -d feature/my-new-feature # optional: delete old feature branch
-- git branch # lists all local branches. * next to current branch
+1. git checkout main
+2. git pull origin main # ensures main is up to date with Github
+3. git checkout -b <type/short-branch-name>
+# Branching naming pattern:
+  # feat/... for new features
+  # fix/... for bug fixes
+  # refactor/... for cleanup/structure changes
+  # chore/... for maintenance
+  # docs/... for documentation changes
+4. Code, run app, run tests
+5. git status/ git diff 
+6. git add . 
+7. git commit -m "type: clear, short message"
+8. git push -u origin <branch name>
+9. Open PR -> review -> merge
+10. git checkout main && git pull
+11. Delete local and remote branch
+git branch -d feature/my-new-feature
 
 Commit Message Style
 Use conventional commits when possible:
