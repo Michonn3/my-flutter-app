@@ -12,19 +12,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 12),
-            Text(
-              'Welcome back, $userName!',
-              style: TextStyle(fontStyle: FontStyle.italic, fontSize: 26),
-            ),
-            Text('Let\'s Get Cooking!', style: TextStyle(fontSize: 14)),
-          ],
-        ),
-      ),
       body: Stack(
         children: [
           Positioned.fill(
