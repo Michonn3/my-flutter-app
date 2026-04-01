@@ -9,6 +9,9 @@ Groceries to Kart is a Flutter/Dart mobile app that helps users:
 - Organize items by store, aisle, or category
 - Reduce impulse buys and wasted trips
 - Eventually connect to a backend for sync, analytics, and multi-device use
+- Eventually manage your fridge and update you when you are running low on items and when items will expire?
+- Create a like system for recipes?
+- Recommend recipes you might like?
 
 This project is also a portfolio-quality codebase to practice real-world mobile dev workflows (clean architecture, API integration, git, and documentation).
 
