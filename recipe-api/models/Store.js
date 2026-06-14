@@ -22,10 +22,14 @@ const storeSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
+        city: {
+            type: String,
+            trim: true
+        },
         sections: {
             type: [sectionSchema],
-            required: true,
-        },
+            required: true
+        }
     },
     { timestamps: true }
 );
