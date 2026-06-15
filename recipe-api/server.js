@@ -13,10 +13,12 @@ const recipeRoutes = require('./routes/recipeRoutes');
 const app = express();
 const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/recipes';
 const PORT = process.env.PORT || 5000;
+const groceryScansRouter = require('./routes/groceryScans');
 
 app.use(cors());
 app.use(express.json());
 app.use('/recipes', recipeRoutes);
+app.use('/api/grocery-scans', groceryScansRouter);
 
 
 mongoose.connect(mongoUri)
