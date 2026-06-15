@@ -22,6 +22,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
     }
   }
 
+  // TODO: Remove once OCR workflow is complete
   void _uploadImage() {
     if (_image == null) return;
 
@@ -29,6 +30,16 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Image Ready for upload: ${_image!.path}')),
     );
+  }
+
+  Future<void> _scanAndUploadImage() async {
+    if (_image == null) return;
+
+    final rawText = 'TODO: OCR text will go here';
+
+    print('Scanned text: $rawText');
+
+    // Next step: send this to your backend API
   }
 
   @override
@@ -68,7 +79,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
             ElevatedButton.icon(
               icon: Icon(Icons.upload_file),
               label: Text('Upload Image'),
-              onPressed: _uploadImage,
+              onPressed: _scanAndUploadImage,
             ),
           ],
         ),
