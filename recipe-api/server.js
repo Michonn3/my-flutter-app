@@ -20,11 +20,9 @@ app.use(express.json());
 app.use('/recipes', recipeRoutes);
 app.use('/api/grocery-scans', groceryScansRouter);
 
-
 mongoose.connect(mongoUri)
 .then(() => console.log("MongoDB connected"))
-.catch(err => console.error("MongoDB connection error: ", err));
-
+.catch(err => console.error("MongoDB connection error:", err));
 
 // Routes
 app.get('/recipes', async (req, res) => {

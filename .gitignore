@@ -51,4 +51,13 @@ ios/Pods/
 
 .vscode/
 
-.env
+.envnode_modules/
+
+# Node dependencies
+**/node_modules/
+
+# Environment variables
+**/.env
+
+docs/ARCHITECTURE.md
+docs/ENGINEERING_PRINCIPLES.md
